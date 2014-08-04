@@ -4,16 +4,31 @@ def(function(mod) {
     , swipe = mod('swipe')
     , walk = mod('walk')
     , paint = mod('paint')
-    , snake = [[8, 7], [7, 7]]
-    //, snake = [[3, 4], [3, 3], [2, 3], [2, 4], [2, 5], [2, 6], [3, 6], [3, 5], [4, 5], [4, 6], [4, 7], [4, 8], [3, 8], [3, 7]]
-    , dir = [1, 0]
-    , food = [10, 7]
-    , interval = 300
+    , snake, dir, food, interval, result
 
-  swipe.up(function () { changeDir([0, -1]); });
-  swipe.down(function () { changeDir([0,  1]); });
-  swipe.left(function () { changeDir([-1, 0]); });
-  swipe.right(function () { changeDir([ 1, 0]); });
+  swipe.up(function () { initOrChangeDir([0, -1]); });
+  swipe.down(function () { initOrChangeDir([0,  1]); });
+  swipe.left(function () { initOrChangeDir([-1, 0]); });
+  swipe.right(function () { initOrChangeDir([ 1, 0]); });
+
+  function init() {
+    snake = [[8, 7], [7, 7]];
+    dir = [1, 0];
+    interval = 300;
+    result = void 0;
+    window.score = 0;
+    genFood();
+    paint(snake, food);
+    setTimeout(tick, interval);
+  }
+
+
+  function initOrChangeDir(newDir) {
+    if (result === 'dead')
+      init()
+    else
+      changeDir(newDir);
+  }
 
   function changeDir(newDir) {
     if (!walk.willDie(snake, newDir))
@@ -26,24 +41,27 @@ def(function(mod) {
       return rnd === pos[0] * layout.columns + pos[1];
     })) rnd++;
 
-    food[0] = Math.floor(rnd / layout.columns);
-    food[1] = rnd % layout.columns;
+    food = [
+      Math.floor(rnd / layout.columns),
+      rnd % layout.columns
+    ]
   }
 
-  genFood();
-  paint(snake, food);
-
-  setTimeout(tick, interval);
+  init();
 
   function tick() {
-    var result = walk(snake, dir, food);
-    if (result === 'eat')
+    result = walk(snake, dir, food);
+    if (result === 'eat') {
+      score += 1;
       genFood();
+    }
     paint(snake, food, result);
     if (result !== 'dead') {
       if (interval > 50)
         interval -= 1
       setTimeout(tick, interval);
+    } else {
+      alert('你吃掉了 '+window.score + ' 个小苹果，快分享给你的朋友们吧！\n这词儿真SB。随便划一下就能重玩儿。')
     }
   }
 });
