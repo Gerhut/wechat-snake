@@ -40,7 +40,10 @@ def(function(mod) {
     if (result === 'eat')
       genFood();
     paint(snake, food, result);
-    if (result !== 'dead')
+    if (result !== 'dead') {
+      if (interval > 50)
+        interval -= 1
       setTimeout(tick, interval);
+    }
   }
 });
