@@ -19,7 +19,7 @@ function backgroundLoaded() {
         width = docWidth;
         height = docWidth * cvRatio;
         canvas.style.left = '0px';
-        canvas.style.top = (docHeight - height) / 2 + 'px';
+        canvas.style.top = '0px';
       } else {
         width = docHeight / cvRatio;
         height = docHeight;
