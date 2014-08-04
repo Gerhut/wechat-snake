@@ -4,8 +4,7 @@ document.addEventListener('WeixinJSBridgeReady', function () {
       img_url: location.href + 'icon.gif',
       img_width: 200, img_height: 300,
       link: location.href,
-      desc: '老程做的贪吃蛇呵呵呵',
-      title: document.title
+      title: '老程做的贪吃蛇呵呵呵'
     }, function(err) {
       _report('timeline', err.err_msg);
     });
