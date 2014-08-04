@@ -24,8 +24,10 @@ document.addEventListener('WeixinJSBridgeReady', function () {
       img_width: data.imageSize,
       img_height: data.imageSize,
       link: data.link,
-      title: data.getText()
+      title: data.getText(),
+      desc: data.getText()
     })
   })
 })
+
 } ()
