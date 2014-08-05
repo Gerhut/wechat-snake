@@ -46,6 +46,9 @@ def(function(mod) {
       Math.floor(rnd / layout.columns),
       rnd % layout.columns
     ]
+
+    if (interval > INTERVAL_LIMIT[1])
+      interval -= 10
   }
 
   alert('用手指在屏幕上划下划左划右划就能控制蛇的转向，点击确定开始。');
@@ -59,8 +62,6 @@ def(function(mod) {
     }
     paint(snake, food, result);
     if (result !== 'dead') {
-      if (interval > INTERVAL_LIMIT[1])
-        interval -= 1
       setTimeout(tick, interval);
     } else {
       alert('你吃掉了 '+window.score + ' 个小苹果，快分享给你的朋友们吧！\n关闭窗口之后随便划一下就能重玩儿。')
