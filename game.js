@@ -13,8 +13,8 @@ def(function(mod) {
   swipe.right(function () { initOrChangeDir([ 1, 0]); });
 
   function init() {
-    snake = [[8, 7], [7, 7]];
-    dir = [1, 0];
+    snake = [[7, 8], [7, 7]];
+    dir = [0, 1];
     interval = INTERVAL_LIMIT[0];
     result = void 0;
     window.score = 0;
