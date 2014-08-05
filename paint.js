@@ -9,13 +9,13 @@ function spriteLoaded() {
       , layout = mod('layout')
 
     function getDir(pos0, pos1) {
-      var dx = pos1[0] - pos0[0]
-        , dy = pos1[1] - pos0[1];
+      var dx = (pos1[0] - pos0[0]) % layout.columns
+        , dy = (pos1[1] - pos0[1]) % layout.rows;
 
-      if (dy === 1) return 0;
-      if (dx === -1) return 1;
-      if (dy === -1) return 2;
-      if (dx === 1) return 3;
+      if (dy === 1 || dy === 1 - layout.rows) return 0;
+      if (dx === -1 || dx === layout.columns - 1) return 1;
+      if (dy === -1 || dy === layout.rows - 1) return 2;
+      if (dx === 1 || dx === 1- layout.columns) return 3;
     }
 
     return function (snake, food, result) {
