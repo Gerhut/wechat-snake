@@ -4,7 +4,7 @@ def(function(mod) {
     , swipe = mod('swipe')
     , walk = mod('walk')
     , paint = mod('paint')
-    , INTERVAL_LIMIT = [200, 100]
+    , INTERVAL_LIMIT = [300, 200]
     , snake, dir, food, interval, result
 
   swipe.up(function () { initOrChangeDir([0, -1]); });
