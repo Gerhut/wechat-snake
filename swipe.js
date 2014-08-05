@@ -8,13 +8,13 @@ def(function (mod) {
       'up': 'touchend'
     }
     document.addEventListener('touchstart', function (event) { event.preventDefault(); });
-  } else if (window.navigator.msPointerEnabled)
+  } else if (window.navigator.msPointerEnabled) {
     evt = {
       'down': 'MSPointerDown',
       'up': 'MSPointerUp'
     }
     document.addEventListener('MSPointerDown', function (event) { event.preventDefault(); });
-  else
+  } else
     evt = {
       'down': 'mousedown',
       'up': 'mouseup'
