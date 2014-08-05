@@ -14,7 +14,7 @@ def(function(mod) {
   function init() {
     snake = [[8, 7], [7, 7]];
     dir = [1, 0];
-    interval = 300;
+    interval = 100;
     result = void 0;
     window.score = 0;
     genFood();
