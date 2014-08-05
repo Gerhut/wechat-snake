@@ -2,7 +2,7 @@ void function () {
 
 var data = {
   imageURL: location.href + 'icon.gif',
-  imageSize: 30,
+  imageSize: 120,
   link: location.href,
   getText: function () { return '老子吃掉了 ' + window.score + '个小苹果，你们也都来试试啊，你们倒是来啊。' }
 }
