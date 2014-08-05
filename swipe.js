@@ -13,6 +13,7 @@ def(function (mod) {
       'down': 'MSPointerDown',
       'up': 'MSPointerUp'
     }
+    document.addEventListener('MSPointerDown', function (event) { event.preventDefault(); });
   else
     evt = {
       'down': 'mousedown',
