@@ -4,6 +4,7 @@ def(function(mod) {
     , swipe = mod('swipe')
     , walk = mod('walk')
     , paint = mod('paint')
+    , INTERVAL_LIMIT = [200, 100]
     , snake, dir, food, interval, result
 
   swipe.up(function () { initOrChangeDir([0, -1]); });
@@ -14,7 +15,7 @@ def(function(mod) {
   function init() {
     snake = [[8, 7], [7, 7]];
     dir = [1, 0];
-    interval = 100;
+    interval = INTERVAL_LIMIT[0];
     result = void 0;
     window.score = 0;
     genFood();
@@ -58,7 +59,7 @@ def(function(mod) {
     }
     paint(snake, food, result);
     if (result !== 'dead') {
-      if (interval > 50)
+      if (interval > INTERVAL_LIMIT[1])
         interval -= 1
       setTimeout(tick, interval);
     } else {
