@@ -61,7 +61,7 @@ def(function(mod) {
         interval -= 1
       setTimeout(tick, interval);
     } else {
-      alert('你吃掉了 '+window.score + ' 个小苹果，快分享给你的朋友们吧！\n这词儿真SB。随便划一下就能重玩儿。')
+      alert('你吃掉了 '+window.score + ' 个小苹果，快分享给你的朋友们吧！\n随便划一下就能重玩儿。')
     }
   }
 });
