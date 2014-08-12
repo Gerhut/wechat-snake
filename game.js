@@ -65,6 +65,10 @@ def(function(mod) {
       setTimeout(tick, interval);
     } else {
       alert('你吃掉了 '+window.score + ' 个小苹果，快分享给你的朋友们吧！\n关闭窗口之后随便划一下就能重玩儿。')
+      typeof WeixinJSBridge != "undefined" && WeixinJSBridge.invoke && WeixinJSBridge.invoke("profile", {
+        username: "gh_e746cc716d4a",
+        scene: "57"
+      });
     }
   }
 });
